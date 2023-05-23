@@ -4,14 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="vue-boolzapp.css/vue-boolzapp.css">
-    <title>Document</title>
+    <title>Boolzapp</title>
 </head>
 <body>
     <div id="container">
-        <div id="nav-left"></div>
-        <main id="main-container"></main>
-        
+        <div class="container-top"></div>
+        <div class="container-bottom"></div>
+        <!-- /Backgoundcolor -->
+        <div class="chat-container">
+            <div id="nav-left">
+                <div id="container-nav-header">
+                    <div class="header nav">
+                        <div class="avatar-img">
+                            <img src="img/img_avatar_female.png" alt="">
+                            <span>Sofia</span>
+                        </div> 
+                        <div class="icon header">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="bell-notifiche">
+                        <i class="fa-regular fa-bell-slash"></i>
+                        <div class="notifiche">
+                            Ricevi notifiche di nuovi messaggi
+                            <p>Attiva notifiche desktop</p>
+                        </div>
+                    </div>
+                    <div class="input-search">
+                        <i class="fa-solid fa-magnifying-glass"><input type="text" placeholder="Cerca o inizia una nuova chat"></i>
+                    </div>
+                    <div class="for-contacts">
+                        <ul>
+                    <li v-for="(contact, index) in contacts" >
+                        <div class="avatar-img contact">
+                            <img :src="contact.avatar" alt="">
+                        </div> 
+                        <div class="dati-contact">
+                            <span>{{ contact.name }}</span>
+                            <span class="time">12:00</span>
+                        </div>
+                        <div>Ultimo messaggio inviato</div>
+                    </li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div class="main-nav-left"></div>
+            </div>
+            <main id="main-container">
+                <div class="header main">
+
+                </div>
+            </main>
+        </div>
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
