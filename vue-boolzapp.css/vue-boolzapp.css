@@ -38,6 +38,16 @@
     border-left: #e1e1e1 solid 1px;
 }
  /* regole nav-left  */
+ 
+#nav-left {
+    width: 30%;
+    height: 100%;
+    
+}
+#container-nav-header{
+    height: 100%;
+
+}
 #nav-left input {
     padding: 10px 20px;
     border-radius: 10px;
@@ -72,11 +82,16 @@
     margin-left: 5px;
 }
 
-#nav-left .icon.header {
+.icon {
     line-height: 50px;
     font-size: 20px;
     color: gray;
     text-align: right;
+    margin-right: 10px;
+}
+
+.icon i {
+    margin-right: 10px;
 }
 
 #nav-left .bell-notifiche {
@@ -100,33 +115,86 @@
     color: gray;
 }
 
+.for-contacts{
+    height: calc(100% - 180px);
+    overflow: auto;
+}
+
 .for-contacts li{
     list-style: none;
     display: flex;
-    width: 80%;
-}
+    padding: 15px 15px;
+    cursor: pointer;
 
+}
+.for-contacts li:hover{
+background-color: #e9eaeb;
+}
 .avatar-img.contact {
     width: 20%;
 }
 
 .dati-contact {
     display: flex;
+    justify-content: space-between; 
+    width: 80%;
+}
+.dati-contact .time {
+    color: gray;
+}
+ /* regole main-container  */
+.header.main {
+    height: 60px;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #dbdbd4;
 }
 
+.current-chat {
+    width: 100%;
+    height: calc(100% - 120px);
+    background-image: url("https://i.pinimg.com/originals/67/fd/ab/67fdab71c4a6af8af8d05c8f0001df56.jpg");
+    padding: 20px;
+    overflow: auto;
+}
 
+.write {
+    width: 100%;
+    height: 60px;
+    background-color: #dadbd4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.write-message  {
+    flex-grow: 1;
+    margin: 0 20px;
+}
 
+.write-message input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+    resize: none;
+    overflow: auto;
+    flex-grow: 1;
+    margin: 0 10px;
+}
 
+.emoticon, .record-audio {
+    font-size: 20px;
+    text-align: center;
+    color: grey;
+}
 
 /* DEFAULT  */
 
-#nav-left {
-    width: 30%;
-    height: 100%;
-    
-}
+
 
 #main-container {
     width: 70%;
