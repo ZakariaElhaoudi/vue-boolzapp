@@ -30,6 +30,7 @@ createApp({
         return {
             currentChat: 0,
             newMessage: '',
+            searchQuery: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -196,6 +197,18 @@ createApp({
             
         }
     },
+    computed: {
+        filteredContactsList() {
+          if (this.searchQuery === "") {
+            return this.contacts
+          } else { 
+            const query = this.searchQuery;
+            return this.contacts.filter(contact => contact.name.includes(query));
+
+          }
+        }
+      },
+
     methods : {
         changeContactChat (index){
             this.currentChat = index;

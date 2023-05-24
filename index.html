@@ -35,24 +35,25 @@
                         </div>
                     </div>
                     <div class="input-search">
-                        <i class="fa-solid fa-magnifying-glass"><input type="text" placeholder="Cerca o inizia una nuova chat"></i>
+                        <i class="fa-solid fa-magnifying-glass">
+                          <input type="text" v-model="searchQuery" placeholder="Cerca o inizia una nuova chat">
+                        </i>
                     </div>
                     <div class="for-contacts">
                         <ul>
-                    <li v-for="(contact, index) in contacts" 
-                    @click="changeContactChat(index)"
-                    class="contact-info"
-                    :class="{'current-interlocutor' : currentChat===index}">
-                        <div class="avatar-img contact">
-                            <img :src="contact.avatar" alt="">
-                        </div> 
-                        <div class="dati-contact">
-                            <span>{{ contact.name }}</span>
-                            <span class="time">12:00</span>
-                        </div>
+                          <li v-for="(contact, index) in filteredContactsList" 
+                          @click="changeContactChat(index)"
+                          :class="{'current-interlocutor' : currentChat===index}">
+                            <div class="avatar-img contact">
+                              <img :src="contact.avatar" alt="">
+                            </div> 
+                            <div class="dati-contact">
+                              <span>{{ contact.name }}</span>
+                              <span class="time">12:00</span>
+                            </div>
                         
-                    </li>
-                    </ul>
+                          </li>
+                        </ul>
                     </div>
                 </div>
             </div>
