@@ -12,6 +12,15 @@ Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente r
 Milestone 4
 Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)*/
 
+const currentDate = new Date();
+const day = String(currentDate.getDate()).padStart(2, '0');
+const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+const year = String(currentDate.getFullYear());
+const hours = String(currentDate.getHours()).padStart(2, '0');
+const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+
+const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 
 
 const{ createApp } = Vue;
@@ -19,6 +28,8 @@ const{ createApp } = Vue;
 createApp({
     data() {
         return {
+            currentChat: 0,
+            newMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -185,6 +196,19 @@ createApp({
             
         }
     },
+    methods : {
+        changeContactChat (index){
+            this.currentChat = index;
+          },
+        sendMessage () {
+            this.contacts[this.currentChat].messages.push({
+              date: formattedDate,
+              message: this.newMessage,
+              status: "sent",
+            });
+            this.newMessage = "";
+        }
+    }
 }).mount('#container')
 
 

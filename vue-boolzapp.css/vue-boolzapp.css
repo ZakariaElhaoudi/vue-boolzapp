@@ -138,6 +138,7 @@ background-color: #e9eaeb;
     display: flex;
     justify-content: space-between; 
     width: 80%;
+    align-items: center;
 }
 .dati-contact .time {
     color: gray;
@@ -149,6 +150,14 @@ background-color: #e9eaeb;
     justify-content: space-between;
     align-items: center;
     background-color: #dbdbd4;
+}
+
+.header.main .avatar-img {
+    width: 40%;
+}
+
+.header.main > .avatar-img span {
+    line-height: 1;
 }
 
 .current-chat {
@@ -191,6 +200,46 @@ background-color: #e9eaeb;
     text-align: center;
     color: grey;
 }
+
+span.last-access {
+    display: block;
+    font-size: 12px;
+  }
+
+.row {
+    height: 100%;
+
+}
+
+/* messaggi  */
+
+.sent {
+    float: right;
+    background-color: #ddf8c0;
+  }
+  .received {
+    float: left;
+    background-color: #fff;
+  }
+  .sent,
+  .received {
+    min-width: 30%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .sent > p,
+  .received > p {
+    padding-bottom: 3px;
+    padding-right: 20px;
+  }
+  .sent > span,
+  .received > span {
+    font-size: 15px;
+    color: #c0c0c0;
+    float: right;
+  }
 
 /* DEFAULT  */
 

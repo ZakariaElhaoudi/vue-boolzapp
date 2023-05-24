@@ -39,7 +39,10 @@
                     </div>
                     <div class="for-contacts">
                         <ul>
-                    <li v-for="(contact, index) in contacts" >
+                    <li v-for="(contact, index) in contacts" 
+                    @click="changeContactChat(index)"
+                    class="contact-info"
+                    :class="{'current-interlocutor' : currentChat===index}">
                         <div class="avatar-img contact">
                             <img :src="contact.avatar" alt="">
                         </div> 
@@ -56,10 +59,10 @@
             <main id="main-container">
                 <div class="header main">
                         <div class="avatar-img contact">
-                          <img :src="contacts[0].avatar"/>
+                          <img :src="contacts[currentChat].avatar"/>
                           <div>
-                            <span>{{contacts[0].name}}</span>
-                            <span class="last-access">16:15</span>
+                            <span>{{contacts[currentChat].name}}</span>
+                            <span class="last-access">{{contacts[currentChat].messages[currentChat].date}}</span>
                           </div>
                         </div>
                         <div class="icon">
@@ -69,13 +72,26 @@
                         </div>
                 </div>
                 <div class="current-chat">
+                    <div
+                    v-for="(message, index) in contacts[currentChat].messages"
+                  
+                  >
+                    <div class="row">
+                      <div :class="message.status">
+                        <p>{{message.message}}</p>
+                        <span>{{message.date}}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="write">
                     <div class="emoticon">
                       <i class="far fa-smile"></i>
                     </div>
                     <div class="write-message">
-                      <input type="text" name="" id="" placeholder="Scrivi un messaggio">
+                      <input type="text" name="" id="" placeholder="Scrivi un messaggio"
+                      v-model="newMessage" @keyup.enter="sendMessage"
+                      >
                     </div>
                     <div class="record-audio">
                       <i class="fas fa-microphone"></i>
@@ -85,6 +101,7 @@
         </div>
     </div>
     
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="vue-boolzapp.js/vue-boolzapp.js"></script>
 </body>
