@@ -207,6 +207,13 @@ createApp({
               status: "sent",
             });
             this.newMessage = "";
+            setTimeout( () => {
+                this.contacts[this.currentChat].messages.push({
+                    date: formattedDate,
+                    message: "ok",
+                    status: "received",
+                  });
+            },1000);
         }
     }
 }).mount('#container')

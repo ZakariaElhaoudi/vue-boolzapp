@@ -128,7 +128,7 @@
 
 }
 .for-contacts li:hover{
-background-color: #e9eaeb;
+    background-color: #e9eaeb;
 }
 .avatar-img.contact {
     width: 20%;
@@ -216,30 +216,27 @@ span.last-access {
 .sent {
     float: right;
     background-color: #ddf8c0;
-  }
-  .received {
+}
+.received {
     float: left;
     background-color: #fff;
-  }
-  .sent,
-  .received {
+}
+.sent, .received {
     min-width: 30%;
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
     position: relative;
-  }
-  .sent > p,
-  .received > p {
+}
+.sent > p, .received > p {
     padding-bottom: 3px;
     padding-right: 20px;
-  }
-  .sent > span,
-  .received > span {
+}
+.sent > span, .received > span {
     font-size: 15px;
     color: #c0c0c0;
     float: right;
-  }
+}
 
 /* DEFAULT  */
 
