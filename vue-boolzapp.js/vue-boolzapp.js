@@ -28,6 +28,7 @@ const{ createApp } = Vue;
 createApp({
     data() {
         return {
+            active: false,
             currentChat: 0,
             newMessage: '',
             searchQuery: '',
@@ -199,12 +200,11 @@ createApp({
     },
     computed: {
         filteredContactsList() {
-          if (this.searchQuery === "") {
+          if (this.searchQuery.trim() === "") {
             return this.contacts
           } else { 
-            const query = this.searchQuery;
+            const query = this.searchQuery.trim().toLowerCase();
             return this.contacts.filter(contact => contact.name.includes(query));
-
           }
         }
       },
@@ -227,7 +227,15 @@ createApp({
                     status: "received",
                   });
             },1000);
+        },
+        deleteMessage(index) {
+            this.contacts[this.currentChat].splice(index,1)
+        },
+        
+        toggle () {
+            this.active = !this.active
         }
+          
     }
 }).mount('#container')
 

@@ -166,6 +166,8 @@
     background-image: url("https://i.pinimg.com/originals/67/fd/ab/67fdab71c4a6af8af8d05c8f0001df56.jpg");
     padding: 20px;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .write {
@@ -238,6 +240,30 @@ span.last-access {
     float: right;
 }
 
+.sent > i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.received > i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.toggle {
+    width: 200px;
+    height: 100px;
+    position:absolute;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #C0C0C0;
+  }
+
 /* DEFAULT  */
 
 
@@ -245,5 +271,4 @@ span.last-access {
 #main-container {
     width: 70%;
     height: 100%;
-    background-color: red;
 }

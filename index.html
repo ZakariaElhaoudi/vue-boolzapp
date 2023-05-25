@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="vue-boolzapp.css/vue-boolzapp.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Boolzapp</title>
 </head>
 <body>
@@ -49,7 +51,7 @@
                             </div> 
                             <div class="dati-contact">
                               <span>{{ contact.name }}</span>
-                              <span class="time">12:00</span>
+                              <span class="time">{{contacts[currentChat].messages[0].date}}</span>
                             </div>
                         
                           </li>
@@ -75,12 +77,18 @@
                 <div class="current-chat">
                     <div
                     v-for="(message, index) in contacts[currentChat].messages"
-                  
                   >
                     <div class="row">
-                      <div :class="message.status">
-                        <p>{{message.message}}</p>
-                        <span>{{message.date}}</span>
+                      <div>
+                          <div v-if="active" class="toggle">
+                            Menu
+                          </div>
+                        <div :class="message.status"
+                        @click="toggle">
+                          <p>{{message.message}}</p>
+                          <span>{{message.date}}</span>
+                          <i class="fas fa-chevron-down"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -102,8 +110,7 @@
         </div>
     </div>
     
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <script src="vue-boolzapp.js/vue-boolzapp.js"></script>
 </body>
 </html>
