@@ -51,9 +51,6 @@
                             </div> 
                             <div class="dati-contact">
                               <span>{{ contact.name }}</span>
-                              <!-- <span class="last-access">{{contacts[index].messages[currentChat].date}}</span> -->
-                            </div>
-                        
                           </li>
                         </ul>
                     </div>
@@ -65,7 +62,7 @@
                           <img :src="contacts[currentChat].avatar"/>
                           <div>
                             <span>{{contacts[currentChat].name}}</span>
-                            <span class="last-access">{{contacts[currentChat].messages[currentChat].date}}</span>
+                            <span class="last-access">{{contacts[currentChat].messages[contacts[currentChat].messages.length - 1].date}}</span>
                           </div>
                         </div>
                         <div class="icon">
@@ -83,7 +80,7 @@
                           @click="toggleDropdown(index)">
                           <div v-if="message.active" class="toggle">
                             <p>Message info</p>
-                            <p @click="deleteMessage(index)">Delete Message</p>
+                            <p @click.stop="deleteMessage(index)">Delete Message</p>
                           </div>
                           <p>{{message.message}}</p>
                           <span>{{message.date}}</span>
